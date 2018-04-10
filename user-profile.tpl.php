@@ -1704,13 +1704,16 @@
       
     </div>
 </div>
-
 <!-- Modal Problem Interest-->
 <div class="modal fade" id="myProfileProblem" role="dialog">
     <div class="modal-dialog modal-lg">
     
       	<!-- Modal content-->
       	<div class="modal-content">
+<?php
+$term1 = taxonomy_get_tree(4);
+?>
+
       		<form enctype="multipart/form-data" action="/changemakers/update-profile"  method="post" id="user-profile-form" accept-charset="UTF-8">
 	        	<div class="modal-header">
 		          	<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -1719,8 +1722,59 @@
 		        <div class="modal-body modal-question modal-body-problem">
 		        	<div class="col-xs-12 txt__left">
 			            <div class="row">
+									<?php
+									$run_parent_no = 0;
+									foreach($term1 as $key=>$value){
+
+										if ($value->name == "All") {
+											continue;
+										}
+
+										$is_parent = false;
+										if( $value->depth === 0) {
+											$is_parent = true;
+											$run_parent_no++;
+										}
+
+										if($is_parent) {
+
+											if($run_parent_no != 1) {
+												print '</div></div></div>';
+											}
+                                        	?>
 			            	<div class="col-xs-4 checkbox-height">
-                                <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group" id="education"> 
+
+                                <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group"> 
+                                        	<div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
+		                                        <label class="control-label" for="edit_field_profile_problem_interest_und_<?php print $value->tid;?>">
+		                                            <br/>
+		                                            <input type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?> value="<?php print $value->tid;?>" class="form-checkbox">
+		                                            <?php print $value->name; ?>
+		                                        </label>
+		                                    </div>
+		                                    <div class="col-xs-12">
+                                        	<?php
+											
+										}
+										else {
+
+									 	?>
+                                        <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox"> 
+                                            <label class="control-label" for="edit_field_profile_problem_interest_und_<?php print $value->tid;?>">
+                                                <input type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?> class="form-checkbox">
+                                                <?php print $value->name; ?> 
+                                            </label>
+                                        </div>
+                                        <?php
+										}
+
+									}
+
+
+									?>
+								</div>
+							</div>
+									<!--
                                     <div class="form-item form-item-field-profile-problem-interest-und-8 form-type-checkbox checkbox"> 
                                         <label class="control-label" for="edit_field_profile_problem_interest_und_8">
                                             <br/>
@@ -1792,11 +1846,6 @@
                                                 <input type="checkbox" id="profile_problem_interest_und_100" name="field_profile_problem_interest[und][100]" value="100" <?php if(in_array(100,$data_problem)) echo "checked"; ?> class="form-checkbox">อากาศ 
                                             </label>
                                         </div>
-                                        <!-- <div class="form-item form-item-field-profile-problem-interest-und-101 form-type-checkbox checkbox"> 
-                                            <label class="control-label" for="profile_problem_interest_und_101">
-                                                <input type="checkbox" id="profile_problem_interest_und_101" name="field_profile_problem_interest[und][101]" value="101" <?php //if(in_array(101,$data_problem)) echo "checked"; ?> class="form-checkbox">ขยะ 
-                                            </label>
-                                        </div> -->
                                         <div class="form-item form-item-field-profile-problem-interest-und-102 form-type-checkbox checkbox"> 
                                             <label class="control-label" for="profile_problem_interest_und_102">
                                                 <input type="checkbox" id="profile_problem_interest_und_102" name="field_profile_problem_interest[und][102]" value="102" <?php if(in_array(102,$data_problem)) echo "checked"; ?> class="form-checkbox">โลกร้อน 
@@ -2029,11 +2078,6 @@
                                                 <input type="checkbox" id="profile_problem_interest_und_78" name="field_profile_problem_interest[und][78]" value="78" <?php if(in_array(78,$data_problem)) echo "checked"; ?> class="form-checkbox">สิทธิสตรี 
                                             </label>
                                         </div>
-                                        <!-- <div class="form-item form-item-field-profile-problem-interest-und-81 form-type-checkbox checkbox"> 
-                                            <label class="control-label" for="profile_problem_interest_und_81">
-                                                <input type="checkbox" id="profile_problem_interest_und_81" name="field_profile_problem_interest[und][81]" value="81" <?php //if(in_array(81,$data_problem)) echo "checked"; ?> class="form-checkbox">ผู้ด้อยโอกาส 
-                                            </label>
-                                        </div> -->
                                         <div class="form-item form-item-field-profile-problem-interest-und-80 form-type-checkbox checkbox"> 
                                             <label class="control-label" for="profile_problem_interest_und_80">
                                                 <input type="checkbox" id="profile_problem_interest_und_80" name="field_profile_problem_interest[und][80]" value="80" <?php if(in_array(80,$data_problem)) echo "checked"; ?> class="form-checkbox">สิทธิคนกลุ่มน้อยและผู้ด้อยโอกาส  
@@ -2099,6 +2143,7 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
 			            </div>
 			            
 	                </div>
