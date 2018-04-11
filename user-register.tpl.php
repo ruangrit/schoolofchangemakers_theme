@@ -1343,7 +1343,10 @@ drupal_set_title('REGISTER');
                             <br />
                             <label class="topic">ทักษะและความสนใจของคุณ<br><span class="detail__small">(มีอยู่แล้วหรือต้องการพัฒนา)</span></label>
                           </div>
-
+<?php
+$term1 = taxonomy_get_tree(3);
+//print_r($term1);
+?>
                           <div class="col-xs-9" id="edit-field-profile-target-group">
 
                             <div class="form-item form-item-field-profile-skill-interest-und form-type-checkboxes form-group" id="all-interest" >
@@ -1361,6 +1364,60 @@ drupal_set_title('REGISTER');
                                 </div>
 
                                 <!-- Start : Computer IT -->
+                            <?php
+                            $run_parent_no = 0;
+                            foreach($term1 as $key=>$value){
+
+                                if ($value->name == "All") {
+                                    continue;
+                                }
+
+                                $is_parent = false;
+                                if( $value->depth === 0) {
+                                    $is_parent = true;
+                                    $run_parent_no++;
+                                }
+
+                                if($is_parent) {
+
+                                    if($run_parent_no != 1) {
+                                        print '</div>';
+                                    }
+                                    ?>
+                                <div class="col-xs-12 checkbox_margin_buttom">
+
+                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
+                                    <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
+                                      <br/>
+                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-<?php print $value->tid;?>">
+                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?>  value="<?php print $value->tid;?>" class="form-checkbox">
+                                        <?php print $value->name;?>
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                <?php
+                                            
+                                }
+                                else {
+
+                                    ?>
+                                  <div class="col-xs-4">
+                                    <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
+                                      <label class="control-label" for="edit-field-profile-skill-interest-und-<?php print $value->tid;?>">
+                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['33'])) echo "checked" ?>  value="<?php print $value->tid;?>" class="form-checkbox">
+                                        <?php print $value->name; ?>
+                                      </label>
+                                    </div>
+                                  </div>
+                                <?php
+                                }
+
+                            }
+
+
+                            ?>
+
                                 <div class="col-xs-12 checkbox_margin_buttom" id="computer-it">
 
                                   <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
