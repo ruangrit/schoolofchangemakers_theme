@@ -1749,7 +1749,7 @@ $term1 = taxonomy_get_tree(4);
                                    	<div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
 		                                <label class="control-label" for="edit_field_profile_problem_interest_und_<?php print $value->tid;?>">
 			                                <br/>
-			                                <input class="parent_checkbox_<?php print $parent_id;?> form-checkbox" type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?> value="<?php print $value->tid;?>">
+			                                <input class="parent_checkbox parent_checkbox_<?php print $value->tid;?> form-checkbox" type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?> value="<?php print $value->tid;?>">
 			                                <?php print $value->name;?>
 
 		                                </label>
@@ -1763,7 +1763,7 @@ $term1 = taxonomy_get_tree(4);
 								 	?>
 		                                <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox"> 
 		                                    <label class="control-label" for="edit_field_profile_problem_interest_und_<?php print $value->tid;?>">
-		                                        <input class="child_checkbox_<?php print $parent_id;?> form-checkbox"  type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?>>
+		                                        <input class="child_checkbox_<?php print $parent_id;?> form-checkbox child_checkbox" parentid="<?php print $parent_id;?>" type="checkbox" id="edit_field_profile_problem_interest_und_<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_problem)) echo "checked"; ?>>
 		                                        <?php print $value->name; ?> 
 		                                    </label>
 		                                </div>
@@ -1882,6 +1882,7 @@ $term3 = taxonomy_get_tree(3);
 								if( $value->depth === 0) {
 									$is_parent = true;
 									$run_parent_no++;
+									$parent_id = $value->tid;
 								}
 
 								if($is_parent) {
@@ -1895,7 +1896,7 @@ $term3 = taxonomy_get_tree(3);
                                     <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox"> 
                                     
                                         <label class="control-label" for="profile_skill_interest_und_<?php print $value->tid;?>">
-                                            <input type="checkbox" id="profile_skill_interest_und_<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_skill)) echo "checked"; ?> class="form-checkbox">
+                                            <input type="checkbox" id="profile_skill_interest_und_<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_skill)) echo "checked"; ?> class="form-checkbox parent_checkbox parent_checkbox_<?php print $value->tid;?>">
                                             <?php print $value->name;?>
                                         </label>
                                     </div>
@@ -1915,7 +1916,7 @@ $term3 = taxonomy_get_tree(3);
 	                                <div class="col-xs-12">
 	         							<div class="form-item form-item-field-profile-skill-interest-und-39 form-type-checkbox checkbox"> 
 	                                        <label class="control-label" for="profile_skill_interest_und_39">
-	                                            <input type="checkbox" id="profile_skill_interest_und_39" name="field_profile_skill_interest[und][39]" <?php if(in_array(39,$data_skill)) echo "checked"; ?> value="39" class="form-checkbox check-commu">ภาษาต่างประเทศ (ระบุภาษา) 
+	                                            <input type="checkbox" id="profile_skill_interest_und_39" name="field_profile_skill_interest[und][39]" <?php if(in_array(39,$data_skill)) echo "checked"; ?> value="39" class="form-checkbox check-commu child_checkbox child_checkbox_<?php print $parent_id;?>" parentid="<?php print $parent_id;?>">ภาษาต่างประเทศ (ระบุภาษา) 
 	                                        </label>
 	                                            <div id="commu-opt" style="<?php echo empty(in_array(39,$data_skill))?"display: none;":""; ?>" >
 	                                            	<div class="field-type-text field-name-field-proflie-language field-widget-text-textfield form-wrapper margin__top5" id="edit-field-proflie-language--2">
@@ -1937,7 +1938,7 @@ $term3 = taxonomy_get_tree(3);
 	                                <div class="col-xs-4">
 	                                    <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox "> 
 	                                        <label class="control-label" for="profile_skill_interest_und_<?php print $value->tid;?>">
-	                                            <input type="checkbox" id="profile_skill_interest_und_<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_skill)) echo "checked"; ?> class="form-checkbox">
+	                                            <input type="checkbox" id="profile_skill_interest_und_<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_skill)) echo "checked"; ?> class="form-checkbox child_checkbox child_checkbox_<?php print $parent_id;?>" parentid="<?php print $parent_id;?>">
 	                                            <?php print $value->name;?>
 	                                        </label>
 	                                    </div>
@@ -2921,6 +2922,30 @@ $term3 = taxonomy_get_tree(3);
 		//return ok;
 	    
 	}
+
+	// Rit script
+	$ = jQuery;
+	$(document).ready(function () {
+
+		$('.parent_checkbox').click(function () {
+			console.log('dddddd');
+			if(this.checked) {
+				$('.child_checkbox_'+this.value).prop("checked", true );
+			}
+			else {
+				$('.child_checkbox_'+this.value).prop("checked", false);
+			}
+		});
+
+		$('.child_checkbox').click(function () {
+
+			if(!this.checked) {
+				var parentId = $(this).attr('parentid');
+				$('.parent_checkbox_'+parentId).prop("checked", false);
+			}
+		});
+
+	});
 
 </script>
 <?php endif; ?>
