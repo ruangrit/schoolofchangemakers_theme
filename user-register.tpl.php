@@ -1284,7 +1284,7 @@ drupal_set_title('REGISTER');
 
 
 
-                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:none" > <!--style="display: none;" -->
+                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:" > <!--style="display: none;" -->
                       <div class="fieldset-wrapper multipage-pane-wrapper">
 
                         <div class="col-xs-12">
@@ -1375,6 +1375,7 @@ $term1 = taxonomy_get_tree(3);
                                 if( $value->depth === 0) {
                                     $is_parent = true;
                                     $run_parent_no++;
+                                    $parent_id = $value->tid;
                                 }
 
                                 if($is_parent) {
@@ -1389,7 +1390,9 @@ $term1 = taxonomy_get_tree(3);
                                     <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
                                       <br/>
                                       <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-<?php print $value->tid;?>">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?>  value="<?php print $value->tid;?>" class="form-checkbox">
+                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" 
+                                        name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?>  
+                                        value="<?php print $value->tid;?>" class="form-checkbox parent_checkbox parent_checkbox_<?php print $value->tid;?>">
                                         <?php print $value->name;?>
                                       </label>
                                     </div>
@@ -1408,14 +1411,16 @@ $term1 = taxonomy_get_tree(3);
                                     <div class="form-item form-item-field-profile-skill-interest-und-39 form-type-checkbox checkbox">
 
                                         <label class="control-label" for="edit-field-profile-skill-interest-und-39">
-                                            <input type="checkbox" id="edit-field-profile-skill-interest-und-39" name="field_profile_skill_interest[und][39]" <?php if(isset($_POST['field_profile_skill_interest']['und']['39'])) echo "checked" ?> value="39" class="form-checkbox check-commu">ภาษาต่างประเทศ (ระบุภาษา)
+                                            <input type="checkbox" id="edit-field-profile-skill-interest-und-39" name="field_profile_skill_interest[und][39]" <?php if(isset($_POST['field_profile_skill_interest']['und']['39'])) echo "checked" ?> value="39"
+                                             class="form-checkbox check-commu child_checkbox child_checkbox_<?php print $parent_id;?>" parentid="<?php print $parent_id;?>">ภาษาต่างประเทศ (ระบุภาษา)
                                         </label>
 
                                         <div id="commu-opt" style="display:none;">
                                             <div class="field-type-text field-name-field-proflie-language field-widget-text-textfield form-wrapper margin__top5" id="edit-field-proflie-language--2">
                                                 <div id="field-proflie-language-add-more-wrapper--2 ">
                                                     <div class="form-item form-type-textfield form-item-field-proflie-language-und-0-value">
-                                                        <input class="text-full form-text" type="text" placeholder="ระบุภาษา" id="edit-field-proflie-language-und-0-value--2" name="field_proflie_language[und][0][value]" value="<?php if(isset($_POST['field_proflie_language'])) echo $_POST['field_proflie_language']['und'][0]['value']; ?>" size="60" maxlength="255">
+                                                        <input class="text-full form-text" type="text" placeholder="ระบุภาษา" id="edit-field-proflie-language-und-0-value--2" 
+                                                        name="field_proflie_language[und][0][value]" value="<?php if(isset($_POST['field_proflie_language'])) echo $_POST['field_proflie_language']['und'][0]['value']; ?>" size="60" maxlength="255">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1430,7 +1435,9 @@ $term1 = taxonomy_get_tree(3);
                                     ?>
                                     <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
                                       <label class="control-label" for="edit-field-profile-skill-interest-und-<?php print $value->tid;?>">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['33'])) echo "checked" ?>  value="<?php print $value->tid;?>" class="form-checkbox">
+                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" 
+                                        name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['33'])) echo "checked" ?>  
+                                        value="<?php print $value->tid;?>" class="form-checkbox child_checkbox child_checkbox_<?php print $parent_id;?>" parentid="<?php print $parent_id;?>">
                                         <?php print $value->name; ?>
                                       </label>
                                     </div>
@@ -1471,7 +1478,7 @@ $term2 = taxonomy_get_tree(4);
                                   <div class="form-item form-item-field-profile-problem-interest-und-8 form-type-checkbox checkbox">
                                     <br>
                                     <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-all">
-                                      <input type="checkbox" id="edit-field-profile-problem-interest-und-all" name="field_profile_problem_interest-all" <?php if(isset($_POST['field_profile_problem_interest-all'])) echo "checked" ?>  lass="form-checkbox">All
+                                      <input type="checkbox" id="edit-field-profile-problem-interest-und-all" name="field_profile_problem_interest-all" <?php if(isset($_POST['field_profile_problem_interest-all'])) echo "checked" ?>  class="form-checkbox">All
                                     </label>
                                   </div>
                                   <!-- End : All option in problem -->
@@ -1488,6 +1495,7 @@ $term2 = taxonomy_get_tree(4);
                                 if( $value->depth === 0) {
                                     $is_parent = true;
                                     $run_parent_no++;
+                                    $parent_id = $value->tid;
                                 }
 
                                 if($is_parent) {
@@ -1503,7 +1511,7 @@ $term2 = taxonomy_get_tree(4);
                                         <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
                                             <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-<?php print $value->tid;?>">
                                                 <br/>
-                                                <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox parent_checkbox parent_checkbox_<?php print $value->tid;?>">
                                                 <?php print $value->name; ?>
                                             </label>
                                         </div>
@@ -1518,7 +1526,8 @@ $term2 = taxonomy_get_tree(4);
                                         <div class="col-xs-4">
                                             <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox ">
                                                 <label class="control-label" for="edit-field-profile-problem-interest-und-<?php print $value->tid;?>">
-                                                    <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                    <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" 
+                                                    class="form-checkbox child_checkbox child_checkbox_<?php print $parent_id;?>" parentid="<?php print $parent_id;?>">
                                                     <?php print $value->name; ?>
                                                 </label>
                                             </div>    
@@ -1599,99 +1608,6 @@ $term3 = taxonomy_get_tree(5);
                                     </div>
                                   </div>
                                 </div>  
-
-                                        <!--
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-16 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-16">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-16"  name="field_profile_target_group[und][16]" <?php if(isset($_POST['field_profile_target_group']['und']['16'])) echo "checked" ?> value="16" class="form-checkbox">เด็ก
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-19 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-19">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-19" name="field_profile_target_group[und][19]" <?php if(isset($_POST['field_profile_target_group']['und']['19'])) echo "checked" ?> value="19" class="form-checkbox">เยาวชน
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-22 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-22">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-22" name="field_profile_target_group[und][22]" <?php if(isset($_POST['field_profile_target_group']['und']['22'])) echo "checked" ?> value="22" class="form-checkbox">ผู้สูงอายุ
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-24 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-24">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-24" name="field_profile_target_group[und][24]" <?php if(isset($_POST['field_profile_target_group']['und']['24'])) echo "checked" ?> value="24" class="form-checkbox">ผู้หญิง
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-17 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-17">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-17" name="field_profile_target_group[und][17]" <?php if(isset($_POST['field_profile_target_group']['und']['17'])) echo "checked" ?> value="17" class="form-checkbox">ผู้พิการ
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-20 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-20">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-20" name="field_profile_target_group[und][20]" <?php if(isset($_POST['field_profile_target_group']['und']['20'])) echo "checked" ?> value="20" class="form-checkbox">ผู้ด้อยโอกาส
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-23 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-23">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-23" name="field_profile_target_group[und][23]" <?php if(isset($_POST['field_profile_target_group']['und']['23'])) echo "checked" ?> value="23" class="form-checkbox">ครอบครัว
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-25 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-25">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-25" name="field_profile_target_group[und][25]" <?php if(isset($_POST['field_profile_target_group']['und']['25'])) echo "checked" ?>  value="25" class="form-checkbox">ชุมชน
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-18 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-18">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-18" name="field_profile_target_group[und][18]" <?php if(isset($_POST['field_profile_target_group']['und']['18'])) echo "checked" ?>  value="18" class="form-checkbox">แรงงานต่างด้าว
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-4">
-                                        <div class="form-item form-item-field-profile-target-group-und-21 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-21">
-                                            <input type="checkbox" id="edit-field-profile-target-group-und-21" name="field_profile_target_group[und][21]" <?php if(isset($_POST['field_profile_target_group']['und']['21'])) echo "checked" ?> value="21" class="form-checkbox">สัตว์
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-xs-6">
-                                        <div class="form-item form-item-field-profile-target-group-und-109 form-type-checkbox checkbox">
-                                          <label class="control-label" for="edit-field-profile-target-group-und-109--2">
-                                            <input id="edit-field-profile-target-group-und-109--2" name="field_profile_target_group[und][109]" <?php if(isset($_POST['field_profile_target_group']['und']['16'])) echo "checked" ?> value="109" class="form-checkbox check-target" type="checkbox">อื่นๆ (ระบุ)
-                                          </label>
-                                          <div id="target-select" style="display:none;">
-                                            <input class="text-full form-control form-text margin__top5" id="edit-field-profile-target-group-other-und-0-value--2 " name="field_profile_target_group_other[und][0][value]" value="<?php if(isset($_POST['field_profile_target_group_other'])) echo $_POST['field_profile_target_group_other']['und'][0]['value']; ?>" size="60" maxlength="255" type="text"  placeholder="">
-                                          </div>
-                                        </div>
-                                      </div>
-                                      -->
 
                                     </div>
 
@@ -3975,6 +3891,39 @@ $term3 = taxonomy_get_tree(5);
 
     }
 
+    // Rit script
+    $ = jQuery;
+    $(document).ready(function () {
+        $('.parent_checkbox').click(function () {
+            if(this.checked) {
+                $('.child_checkbox_'+this.value).prop("checked", true );
+            }
+            else {
+                $('.child_checkbox_'+this.value).prop("checked", false);
+            }
+
+            // todo remove hardcode
+            if ($("#edit-field-profile-skill-interest-und-39").is(":checked")) {
+
+                $("#commu-opt").show();
+
+            } else {
+
+                $("#commu-opt").hide();
+
+            }
+
+        });
+
+        $('.child_checkbox').click(function () {
+
+            if(!this.checked) {
+                var parentId = $(this).attr('parentid');
+                $('.parent_checkbox_'+parentId).prop("checked", false);
+            }
+        });
+
+    });
 
 
 
