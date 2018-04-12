@@ -1284,7 +1284,7 @@ drupal_set_title('REGISTER');
 
 
 
-                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display: none;" > <!--style="display: none;" -->
+                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:none" > <!--style="display: none;" -->
                       <div class="fieldset-wrapper multipage-pane-wrapper">
 
                         <div class="col-xs-12">
@@ -1345,7 +1345,6 @@ drupal_set_title('REGISTER');
                           </div>
 <?php
 $term1 = taxonomy_get_tree(3);
-//print_r($term1);
 ?>
                           <div class="col-xs-9" id="edit-field-profile-target-group">
 
@@ -1403,452 +1402,57 @@ $term1 = taxonomy_get_tree(3);
 
                                     ?>
                                   <div class="col-xs-4">
+                                    <?php // Todo Remove hard code
+                                        if ($value->tid == 39) {
+                                        ?>
+                                    <div class="form-item form-item-field-profile-skill-interest-und-39 form-type-checkbox checkbox">
+
+                                        <label class="control-label" for="edit-field-profile-skill-interest-und-39">
+                                            <input type="checkbox" id="edit-field-profile-skill-interest-und-39" name="field_profile_skill_interest[und][39]" <?php if(isset($_POST['field_profile_skill_interest']['und']['39'])) echo "checked" ?> value="39" class="form-checkbox check-commu">ภาษาต่างประเทศ (ระบุภาษา)
+                                        </label>
+
+                                        <div id="commu-opt" style="display:none;">
+                                            <div class="field-type-text field-name-field-proflie-language field-widget-text-textfield form-wrapper margin__top5" id="edit-field-proflie-language--2">
+                                                <div id="field-proflie-language-add-more-wrapper--2 ">
+                                                    <div class="form-item form-type-textfield form-item-field-proflie-language-und-0-value">
+                                                        <input class="text-full form-text" type="text" placeholder="ระบุภาษา" id="edit-field-proflie-language-und-0-value--2" name="field_proflie_language[und][0][value]" value="<?php if(isset($_POST['field_proflie_language'])) echo $_POST['field_proflie_language']['und'][0]['value']; ?>" size="60" maxlength="255">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+
+                                    </div>
+                                        
+                                        <?php 
+                                        }
+                                        else {
+                                    ?>
                                     <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
                                       <label class="control-label" for="edit-field-profile-skill-interest-und-<?php print $value->tid;?>">
                                         <input type="checkbox" id="edit-field-profile-skill-interest-und-<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_skill_interest']['und']['33'])) echo "checked" ?>  value="<?php print $value->tid;?>" class="form-checkbox">
                                         <?php print $value->name; ?>
                                       </label>
                                     </div>
+                                    <?php } ?>
                                   </div>
+
                                 <?php
+
                                 }
 
                             }
 
 
                             ?>
-
-                                <div class="col-xs-12 checkbox_margin_buttom" id="computer-it">
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-26 form-type-checkbox checkbox">
-                                      <br/>
-                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-26">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-26" name="field_profile_skill_interest[und][26]" <?php if(isset($_POST['field_profile_skill_interest']['und']['26'])) echo "checked" ?>  value="26" class="form-checkbox">คอมพิวเตอร์/ไอที
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-4">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-33 form-type-checkbox checkbox">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-33">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-33" name="field_profile_skill_interest[und][33]" <?php if(isset($_POST['field_profile_skill_interest']['und']['33'])) echo "checked" ?>  value="33" class="form-checkbox">การออกแบบกราฟิก
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-4">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-35 form-type-checkbox checkbox">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-35">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-35" name="field_profile_skill_interest[und][35]" <?php if(isset($_POST['field_profile_skill_interest']['und']['35'])) echo "checked" ?>  value="35" class="form-checkbox">การใช้ Social media
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-4">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-37 form-type-checkbox checkbox">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-37">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-37" name="field_profile_skill_interest[und][37]" <?php if(isset($_POST['field_profile_skill_interest']['und']['37'])) echo "checked" ?>  value="37" class="form-checkbox">การเขียนโปรแกรม
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-4">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-34 form-type-checkbox checkbox">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-34">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-34" name="field_profile_skill_interest[und][34]" <?php if(isset($_POST['field_profile_skill_interest']['und']['34'])) echo "checked" ?> value="34" class="form-checkbox">การทำเว็บไซต์
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-4">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-36 form-type-checkbox checkbox">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-36">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-36" name="field_profile_skill_interest[und][36]" <?php if(isset($_POST['field_profile_skill_interest']['und']['36'])) echo "checked" ?> value="36" class="form-checkbox">การทำ Application
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <!-- End : Computer IT -->
-
-                                <!-- Start : Industry -->
-                                <div class="col-xs-12 margin__top20" id="industry">
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-27 form-type-checkbox checkbox">
-                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-27">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-27" name="field_profile_skill_interest[und][27]" <?php if(isset($_POST['field_profile_skill_interest']['und']['27'])) echo "checked" ?>  value="27" class="form-checkbox">ธุรกิจและอุตสาหกรรม
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-12">
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-120 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-120">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-120" name="field_profile_skill_interest[und][120]" <?php if(isset($_POST['field_profile_skill_interest']['und']['120'])) echo "checked" ?> value="120" class="form-checkbox">การวางแผนกลยุทธ์
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-125 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-125">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-125" name="field_profile_skill_interest[und][125]" <?php if(isset($_POST['field_profile_skill_interest']['und']['125'])) echo "checked" ?> value="125" class="form-checkbox">การบริหารงาน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-130 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-130">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-130" name="field_profile_skill_interest[und][130]" <?php if(isset($_POST['field_profile_skill_interest']['und']['130'])) echo "checked" ?>  value="130" class="form-checkbox">การบริหารคน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-121 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-121">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-121" name="field_profile_skill_interest[und][121]" <?php if(isset($_POST['field_profile_skill_interest']['und']['121'])) echo "checked" ?>  value="121" class="form-checkbox">การเงิน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-126 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-126">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-126" name="field_profile_skill_interest[und][126]" <?php if(isset($_POST['field_profile_skill_interest']['und']['126'])) echo "checked" ?>  value="126" class="form-checkbox">การบัญชี
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-131 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-131">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-131" name="field_profile_skill_interest[und][131]" <?php if(isset($_POST['field_profile_skill_interest']['und']['131'])) echo "checked" ?>  value="131" class="form-checkbox">การลงทุน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-122 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-122">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-122" name="field_profile_skill_interest[und][122]" <?php if(isset($_POST['field_profile_skill_interest']['und']['122'])) echo "checked" ?>  value="122" class="form-checkbox">การตลาด
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-127 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-127">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-127" name="field_profile_skill_interest[und][127]" <?php if(isset($_POST['field_profile_skill_interest']['und']['127'])) echo "checked" ?>  value="127" class="form-checkbox">การโฆษณา / ประชาสัมพันธ์
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-132 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-132">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-132" name="field_profile_skill_interest[und][132]" <?php if(isset($_POST['field_profile_skill_interest']['und']['132'])) echo "checked" ?>  value="132" class="form-checkbox">การประสานงาน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-123 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-123">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-123" name="field_profile_skill_interest[und][123]" <?php if(isset($_POST['field_profile_skill_interest']['und']['123'])) echo "checked" ?>  value="123" class="form-checkbox">การขาย
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-128 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-128">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-128" name="field_profile_skill_interest[und][128]" <?php if(isset($_POST['field_profile_skill_interest']['und']['128'])) echo "checked" ?>  value="128" class="form-checkbox">ความเป็นผู้ประกอบการ
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-133 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-133">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-133" name="field_profile_skill_interest[und][133]" <?php if(isset($_POST['field_profile_skill_interest']['und']['133'])) echo "checked" ?> value="133" class="form-checkbox">การนำเข้าและส่งออก
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-124 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-124">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-124" name="field_profile_skill_interest[und][124]" <?php if(isset($_POST['field_profile_skill_interest']['und']['124'])) echo "checked" ?>  value="124" class="form-checkbox">วิจัยและพัฒนา
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-129 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-129">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-129" name="field_profile_skill_interest[und][129]" <?php if(isset($_POST['field_profile_skill_interest']['und']['129'])) echo "checked" ?> value="129" class="form-checkbox">Supply chain
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-                                <!-- End : Industry -->
-
-                                <div class="col-xs-12 margin__top20 " id="communication">
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-skill-interest-und-28 form-type-checkbox checkbox">
-                                    <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-28">
-                                      <input type="checkbox" id="edit-field-profile-skill-interest-und-28" name="field_profile_skill_interest[und][28]" <?php if(isset($_POST['field_profile_skill_interest']['und']['28'])) echo "checked" ?> value="28" class="form-checkbox">การสื่อสาร
-                                    </label>
-                                  </div>
-
-                                  <div class="col-xs-12" >
-
-                                    <div class="form-item form-item-field-profile-skill-interest-und-39 form-type-checkbox checkbox col-xs-12">
-
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-39">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-39" name="field_profile_skill_interest[und][39]" <?php if(isset($_POST['field_profile_skill_interest']['und']['39'])) echo "checked" ?> value="39" class="form-checkbox check-commu">ภาษาต่างประเทศ (ระบุภาษา)
-                                      </label>
-
-                                      <div id="commu-opt" style="display:none;">
-                                        <div class="field-type-text field-name-field-proflie-language field-widget-text-textfield form-wrapper margin__top5" id="edit-field-proflie-language--2">
-                                          <div id="field-proflie-language-add-more-wrapper--2 ">
-                                            <div class="form-item form-type-textfield form-item-field-proflie-language-und-0-value">
-                                              <input class="text-full form-text" type="text" placeholder="ระบุภาษา" id="edit-field-proflie-language-und-0-value--2" name="field_proflie_language[und][0][value]" value="<?php if(isset($_POST['field_proflie_language'])) echo $_POST['field_proflie_language']['und'][0]['value']; ?>" size="60" maxlength="255">
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <br>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="form-item form-item-field-profile-skill-interest-und-40 form-type-checkbox checkbox margin__top10 col-xs-4">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-40">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-40" name="field_profile_skill_interest[und][40]" <?php if(isset($_POST['field_profile_skill_interest']['und']['40'])) echo "checked" ?> value="40" class="form-checkbox">การเขียน
-                                      </label>
-                                    </div>
-
-                                    <div class="form-item form-item-field-profile-skill-interest-und-41 form-type-checkbox checkbox col-xs-4">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-41">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-41" name="field_profile_skill_interest[und][41]" <?php if(isset($_POST['field_profile_skill_interest']['und']['41'])) echo "checked" ?>  value="41" class="form-checkbox">การเล่าเรื่อง
-                                      </label>
-                                    </div>
-
-                                    <div class="form-item form-item-field-profile-skill-interest-und-134 form-type-checkbox checkbox col-xs-4">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-134">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-134" name="field_profile_skill_interest[und][134]" <?php if(isset($_POST['field_profile_skill_interest']['und']['134'])) echo "checked" ?> value="134" class="form-checkbox">การฟัง
-                                      </label>
-                                    </div>
-
-                                    <div class="form-item form-item-field-profile-skill-interest-und-42 form-type-checkbox checkbox col-xs-4">
-                                      <label class="control-label" for="edit-field-profile-skill-interest-und-42">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-42" name="field_profile_skill_interest[und][42]" <?php if(isset($_POST['field_profile_skill_interest']['und']['42'])) echo "checked" ?> value="42" class="form-checkbox">การพูด (พิธีกร, พรีเซนต์)
-                                      </label>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="col-xs-12 margin__top20" id="article" >
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-29 form-type-checkbox checkbox">
-                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-29">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-29" name="field_profile_skill_interest[und][29]" <?php if(isset($_POST['field_profile_skill_interest']['und']['29'])) echo "checked" ?> value="29" class="form-checkbox">ศิลปะและงานฝึมือ
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-12" >
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-135 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-135">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-135" name="field_profile_skill_interest[und][135]" <?php if(isset($_POST['field_profile_skill_interest']['und']['135'])) echo "checked" ?> value="135" class="form-checkbox">งานทำมือ
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-137 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-137">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-137" name="field_profile_skill_interest[und][137]" <?php if(isset($_POST['field_profile_skill_interest']['und']['137'])) echo "checked" ?> value="137" class="form-checkbox">วาดรูป
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-139 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-139">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-139" name="field_profile_skill_interest[und][139]" <?php if(isset($_POST['field_profile_skill_interest']['und']['139'])) echo "checked" ?> value="139" class="form-checkbox">ถ่ายรูป
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-136 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-136">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-136" name="field_profile_skill_interest[und][136]" <?php if(isset($_POST['field_profile_skill_interest']['und']['136'])) echo "checked" ?> value="136" class="form-checkbox">การออกแบบ
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-138 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-138">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-138" name="field_profile_skill_interest[und][138]" <?php if(isset($_POST['field_profile_skill_interest']['und']['138'])) echo "checked" ?> value="138" class="form-checkbox">แฟชั่น
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-140 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-140">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-140" name="field_profile_skill_interest[und][140]" <?php if(isset($_POST['field_profile_skill_interest']['und']['140'])) echo "checked" ?> value="140" class="form-checkbox">งานศิลปะ
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="col-xs-12 margin__top20" id="sport">
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-                                   <div class="form-item form-item-field-profile-skill-interest-und-30 form-type-checkbox checkbox">
-                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-30">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-30" name="field_profile_skill_interest[und][30]" <?php if(isset($_POST['field_profile_skill_interest']['und']['30'])) echo "checked" ?> value="30" class="form-checkbox">กีฬาและบันเทิง
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-12">
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-141 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-141">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-141" name="field_profile_skill_interest[und][141]" <?php if(isset($_POST['field_profile_skill_interest']['und']['141'])) echo "checked" ?> value="141" class="form-checkbox">กีฬา
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-144 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-144">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-144" name="field_profile_skill_interest[und][144]" <?php if(isset($_POST['field_profile_skill_interest']['und']['144'])) echo "checked" ?>  value="144" class="form-checkbox">การแสดง
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-146 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-146">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-146" name="field_profile_skill_interest[und][146]" <?php if(isset($_POST['field_profile_skill_interest']['und']['146'])) echo "checked" ?> value="146" class="form-checkbox">อ่านหนังสือ
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-142 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-142">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-142" name="field_profile_skill_interest[und][142]" <?php if(isset($_POST['field_profile_skill_interest']['und']['142'])) echo "checked" ?> value="142" class="form-checkbox">ดนตรี
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-145 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-145">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-145" name="field_profile_skill_interest[und][145]" <?php if(isset($_POST['field_profile_skill_interest']['und']['145'])) echo "checked" ?> value="145" class="form-checkbox">ดูภาพยนตร์
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-147 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-147">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-147" name="field_profile_skill_interest[und][147]" <?php if(isset($_POST['field_profile_skill_interest']['und']['147'])) echo "checked" ?> value="147" class="form-checkbox">ทำอาหาร
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-143 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-143">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-143" name="field_profile_skill_interest[und][143]" <?php if(isset($_POST['field_profile_skill_interest']['und']['143'])) echo "checked" ?>  value="143" class="form-checkbox">ท่องเที่ยว
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="col-xs-12 margin__top20" id="project-social">
-
-                                  <div class="checkbox_margin_buttom form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-                                    <div class="form-item form-item-field-profile-skill-interest-und-30 form-type-checkbox checkbox">
-                                      <label class="control-label font__bold" for="edit-field-profile-skill-interest-und-31">
-                                        <input type="checkbox" id="edit-field-profile-skill-interest-und-31" name="field_profile_skill_interest[und][31]" <?php if(isset($_POST['field_profile_skill_interest']['und']['31'])) echo "checked" ?> value="31"  class="form-checkbox">การทำโปรเจกต์และกิจการเพื่อสังคม
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-12">
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-43 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-43">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-43" name="field_profile_skill_interest[und][43]" <?php if(isset($_POST['field_profile_skill_interest']['und']['43'])) echo "checked" ?> value="43" class="form-checkbox">แหล่งทุน
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-45 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-45">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-45" name="field_profile_skill_interest[und][45]" <?php if(isset($_POST['field_profile_skill_interest']['und']['45'])) echo "checked" ?>  value="45" class="form-checkbox">กิจกรรม
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-46 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-46">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-46" name="field_profile_skill_interest[und][46]" <?php if(isset($_POST['field_profile_skill_interest']['und']['46'])) echo "checked" ?>  value="46" class="form-checkbox">กรณีศึกษา
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                      <div class="form-item form-item-field-profile-skill-interest-und-44 form-type-checkbox checkbox">
-                                        <label class="control-label" for="edit-field-profile-skill-interest-und-44">
-                                          <input type="checkbox" id="edit-field-profile-skill-interest-und-44" name="field_profile_skill_interest[und][44]" <?php if(isset($_POST['field_profile_skill_interest']['und']['44'])) echo "checked" ?> value="44" class="form-checkbox">จิตอาสา
-                                        </label>
-                                      </div>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                              </div>
-
                             </div>
+                        </div>
+                        </div>
+                        </div>
 
-                          </div>
-
+<?php
+$term2 = taxonomy_get_tree(4);
+?>
                           <!-- Start : Problem interest -->
                           <div class="col-xs-12 margin__top20">
 
@@ -1872,615 +1476,72 @@ $term1 = taxonomy_get_tree(3);
                                   </div>
                                   <!-- End : All option in problem -->
 
-                                  <!-- Start : Education problem -->
-                                  <div class="col-xs-12 " id="education">
+                            <?php
+                            $run_parent_no = 0;
+                            foreach($term2 as $key=>$value){
+
+                                if ($value->name == "All") {
+                                    continue;
+                                }
+
+                                $is_parent = false;
+                                if( $value->depth === 0) {
+                                    $is_parent = true;
+                                    $run_parent_no++;
+                                }
+
+                                if($is_parent) {
+
+                                    if($run_parent_no != 1) {
+                                        print '</div></div></div>';
+                                    }
+                                    ?>
+                                  <div class="col-xs-12 ">
 
                                     <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
 
-                                      <div class="form-item form-item-field-profile-problem-interest-und-8 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-8">
-                                          <br/>
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-8" name="field_profile_problem_interest[und][8]" <?php if(isset($_POST['field_profile_problem_interest']['und']['8'])) echo "checked" ?> value="8" class="form-checkbox">การศึกษา
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12 checkbox_margin_buttom">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-53 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-53">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-53" name="field_profile_problem_interest[und][53]" <?php if(isset($_POST['field_profile_problem_interest']['und']['53'])) echo "checked" ?> value="53" class="form-checkbox">การเข้าถึงการศึกษา
+                                        <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox">
+                                            <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-<?php print $value->tid;?>">
+                                                <br/>
+                                                <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                <?php print $value->name; ?>
                                             </label>
-                                          </div>
                                         </div>
+                                        <div class="col-xs-12 checkbox_margin_buttom">
 
+                                <?php
+                                            
+                                }
+                                else {
+
+                                    ?>
                                         <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-54 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-54">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-54" name="field_profile_problem_interest[und][54]" <?php if(isset($_POST['field_profile_problem_interest']['und']['54'])) echo "checked" ?>  value="54" class="form-checkbox">คุณภาพการศึกษา
-                                            </label>
-                                          </div>
+                                            <div class="form-item form-item-field-profile-problem-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox ">
+                                                <label class="control-label" for="edit-field-profile-problem-interest-und-<?php print $value->tid;?>">
+                                                    <input type="checkbox" id="edit-field-profile-problem-interest-und-<?php print $value->tid;?>" name="field_profile_problem_interest[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_problem_interest']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                    <?php print $value->name; ?>
+                                                </label>
+                                            </div>    
                                         </div>
+                                <?php
+                                }
 
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-55 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-55">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-55" name="field_profile_problem_interest[und][55]" <?php if(isset($_POST['field_profile_problem_interest']['und']['55'])) echo "checked" ?> value="55" class="form-checkbox">การเลือกเรียนต่อ
-                                            </label>
-                                          </div>
-                                        </div>
+                            }
 
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-56 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-56">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-56" name="field_profile_problem_interest[und][56]" <?php if(isset($_POST['field_profile_problem_interest']['und']['56'])) echo "checked" ?> value="56" class="form-checkbox">คุณภาพครู
-                                            </label>
-                                          </div>
-                                        </div>
 
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-57 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-57">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-57" name="field_profile_problem_interest[und][57]" value="57" <?php if(isset($_POST['field_profile_problem_interest']['und']['57'])) echo "checked" ?> class="form-checkbox">ศักยภาพเด็กและเยาวชน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-58 form-type-checkbox checkbox" >
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-58">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-58" name="field_profile_problem_interest[und][58]" <?php if(isset($_POST['field_profile_problem_interest']['und']['58'])) echo "checked" ?>  value="58"  class="form-checkbox">การเล่น
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-59 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-59">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-59" name="field_profile_problem_interest[und][59]" <?php if(isset($_POST['field_profile_problem_interest']['und']['59'])) echo "checked" ?> value="59" class="form-checkbox">ปัญหาพฤติกรรมเด็กและเยาวชน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-60 form-type-checkbox checkbox" >
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-60">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-60" name="field_profile_problem_interest[und][60]" <?php if(isset($_POST['field_profile_problem_interest']['und']['60'])) echo "checked" ?> value="60" class="form-checkbox">เยาวชนกลุ่มเสี่ยง
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Education problem -->
-
-                                  <!-- Start : Environment problem -->
-                                  <div class="col-xs-12 margin__top20" id="environment">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-11 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-11">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-11" name="field_profile_problem_interest[und][11]" <?php if(isset($_POST['field_profile_problem_interest']['und']['11'])) echo "checked" ?>  value="11" class="form-checkbox">สิ่งแวดล้อม
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-99 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-99">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-99" name="field_profile_problem_interest[und][99]" <?php if(isset($_POST['field_profile_problem_interest']['und']['99'])) echo "checked" ?>  value="99" class="form-checkbox">น้ำ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-100 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-100">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-100" name="field_profile_problem_interest[und][100]" <?php if(isset($_POST['field_profile_problem_interest']['und']['100'])) echo "checked" ?> value="100" class="form-checkbox">อากาศ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-102 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-102">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-102" name="field_profile_problem_interest[und][102]" <?php if(isset($_POST['field_profile_problem_interest']['und']['102'])) echo "checked" ?>  value="102" class="form-checkbox">โลกร้อน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-103 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-103">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-103" name="field_profile_problem_interest[und][103]" <?php if(isset($_POST['field_profile_problem_interest']['und']['103'])) echo "checked" ?>  value="103" class="form-checkbox">อนุรักษ์สัตว์ป่า
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-104 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-104">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-104" name="field_profile_problem_interest[und][104]" <?php if(isset($_POST['field_profile_problem_interest']['und']['104'])) echo "checked" ?>  value="104" class="form-checkbox">ทารุณสัตว์
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-105 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-105">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-105" name="field_profile_problem_interest[und][105]" <?php if(isset($_POST['field_profile_problem_interest']['und']['105'])) echo "checked" ?>  value="105" class="form-checkbox">พลังงานทดแทน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-106 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-106">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-106" name="field_profile_problem_interest[und][106]" <?php if(isset($_POST['field_profile_problem_interest']['und']['106'])) echo "checked" ?>  value="106" class="form-checkbox">ผลิตภัณฑ์ดูแลสิ่งแวดล้อม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-107 form-type-checkbox checkbox ">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-107">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-107" name="field_profile_problem_interest[und][107]" <?php if(isset($_POST['field_profile_problem_interest']['und']['107'])) echo "checked" ?>  value="107" class="form-checkbox">การอนุรักษ์ทรัพยากร
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Environment problem -->
-
-                                  <!-- Start : Healty problem -->
-                                  <div class="col-xs-12  margin__top20" id="healty">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-86 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-86">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-86" name="field_profile_problem_interest[und][86]" value="86" <?php if(isset($_POST['field_profile_problem_interest']['und']['86'])) echo "checked" ?>  class="form-checkbox">สุขภาพ
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-85 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-85">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-85" name="field_profile_problem_interest[und][85]" <?php if(isset($_POST['field_profile_problem_interest']['und']['85'])) echo "checked" ?> value="85" class="form-checkbox">การเข้าถึงบริการสุขภาพ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-87 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-87">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-87" name="field_profile_problem_interest[und][87]" <?php if(isset($_POST['field_profile_problem_interest']['und']['87'])) echo "checked" ?> value="87" class="form-checkbox">ความรู้ในการดูแลสุขภาพ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-88 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-88">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-88" name="field_profile_problem_interest[und][88]" <?php if(isset($_POST['field_profile_problem_interest']['und']['88'])) echo "checked" ?> value="88" class="form-checkbox">สุขภาพทางเพศ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-89 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-89">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-89" name="field_profile_problem_interest[und][89]" <?php if(isset($_POST['field_profile_problem_interest']['und']['89'])) echo "checked" ?>  value="89" class="form-checkbox">เอดส์
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-90 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-90">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-90" name="field_profile_problem_interest[und][90]" <?php if(isset($_POST['field_profile_problem_interest']['und']['90'])) echo "checked" ?> value="90" class="form-checkbox">ยาเสพติด
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-91 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-91">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-91" name="field_profile_problem_interest[und][91]" <?php if(isset($_POST['field_profile_problem_interest']['und']['91'])) echo "checked" ?>  value="91" class="form-checkbox">สุขภาพจิต
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-92 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-92">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-92" name="field_profile_problem_interest[und][92]" <?php if(isset($_POST['field_profile_problem_interest']['und']['92'])) echo "checked" ?>  value="92" class="form-checkbox">การดูแลผู้สูงอายุ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Healty problem -->
-
-                                  <!-- Start : Economy problem -->
-                                  <div class="col-xs-12  margin__top20" id="economy">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-12 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-12">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-12" name="field_profile_problem_interest[und][12]" <?php if(isset($_POST['field_profile_problem_interest']['und']['12'])) echo "checked" ?>  value="12" class="form-checkbox">เศรษฐกิจ/ความยากจน
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-70 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-70">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-70" name="field_profile_problem_interest[und][70]" <?php if(isset($_POST['field_profile_problem_interest']['und']['70'])) echo "checked" ?>  value="70" class="form-checkbox">การสร้างและฝึกอาชีพ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-72 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-72">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-72" name="field_profile_problem_interest[und][72]" <?php if(isset($_POST['field_profile_problem_interest']['und']['72'])) echo "checked" ?> value="72" class="form-checkbox">ความมั่นคงทางอาหาร
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-149 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-149">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-149" name="field_profile_problem_interest[und][149]" <?php if(isset($_POST['field_profile_problem_interest']['und']['149'])) echo "checked" ?>  value="149" class="form-checkbox">ที่อยู่อาศัย
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-73 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-73">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-73" name="field_profile_problem_interest[und][73]" <?php if(isset($_POST['field_profile_problem_interest']['und']['73'])) echo "checked" ?>  value="73" class="form-checkbox">การพัฒนาชุมชน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-74 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-74">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-74" name="field_profile_problem_interest[und][74]" <?php if(isset($_POST['field_profile_problem_interest']['und']['74'])) echo "checked" ?>  value="74" class="form-checkbox">การพัฒนาเมือง
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-71 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-71">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-71" name="field_profile_problem_interest[und][71]" <?php if(isset($_POST['field_profile_problem_interest']['und']['71'])) echo "checked" ?> value="71" class="form-checkbox">การให้กู้รายย่อย/ออมทรัพย์/สหกรณ์
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Economy problem -->
-
-                                  <!-- Start : Claim problem -->
-                                  <div class="col-xs-12 margin__top10" id="claim">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-9 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-9">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-9" name="field_profile_problem_interest[und][9]" <?php if(isset($_POST['field_profile_problem_interest']['und']['9'])) echo "checked" ?> value="9" class="form-checkbox">สิทธิและความเท่าเทียม
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-75 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-75">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-75" name="field_profile_problem_interest[und][75]" <?php if(isset($_POST['field_profile_problem_interest']['und']['75'])) echo "checked" ?> value="75" class="form-checkbox">สิทธิพลเมือง
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-76 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-76">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-76" name="field_profile_problem_interest[und][76]" <?php if(isset($_POST['field_profile_problem_interest']['und']['76'])) echo "checked" ?> value="76" class="form-checkbox">สิทธิมนุษยชน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-77 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-77">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-77" name="field_profile_problem_interest[und][77]" <?php if(isset($_POST['field_profile_problem_interest']['und']['77'])) echo "checked" ?> value="77" class="form-checkbox">สิทธิผู้พิการ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-78 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-78">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-78" name="field_profile_problem_interest[und][78]" <?php if(isset($_POST['field_profile_problem_interest']['und']['78'])) echo "checked" ?>  value="78" class="form-checkbox">สิทธิสตรี
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <?php /*
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-79 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-79">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-79" name="field_profile_problem_interest[und][79]" <?php if(isset($_POST['field_profile_problem_interest']['und']['79'])) echo "checked" ?>  value="79" class="form-checkbox">สิทธิเพศทางเลือก
-                                            </label>
-                                          </div>
-                                        </div>
-                                        */ ?>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-80 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-80">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-80" name="field_profile_problem_interest[und][80]" <?php if(isset($_POST['field_profile_problem_interest']['und']['80'])) echo "checked" ?> value="80" class="form-checkbox">สิทธิชนกลุ่มน้อยและผู้ด้อยโอกาส
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-82 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-82">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-82" name="field_profile_problem_interest[und][82]" <?php if(isset($_POST['field_profile_problem_interest']['und']['82'])) echo "checked" ?>  value="82" class="form-checkbox">ความเท่าเทียมทางเพศ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-83 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-83">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-83" name="field_profile_problem_interest[und][83]" <?php if(isset($_POST['field_profile_problem_interest']['und']['83'])) echo "checked" ?> value="83" class="form-checkbox">การค้ามนุษย์
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-84 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-84">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-84" name="field_profile_problem_interest[und][84]" <?php if(isset($_POST['field_profile_problem_interest']['und']['84'])) echo "checked" ?>  value="84" class="form-checkbox">การอนุรักษ์วัฒนธรรมท้องถิ่น
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Claim problem -->
-
-                                  <!-- Start : Participation problem -->
-                                  <div class="col-xs-12 margin__top20" id="participation">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-15 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-15">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-15" name="field_profile_problem_interest[und][15]" <?php if(isset($_POST['field_profile_problem_interest']['und']['15'])) echo "checked" ?>  value="15" class="form-checkbox">การมีส่วนร่วม
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-61 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-61">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-61" name="field_profile_problem_interest[und][61]" <?php if(isset($_POST['field_profile_problem_interest']['und']['61'])) echo "checked" ?> value="61" class="form-checkbox">ศิลปวัฒนธรรม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-63 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-63">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-63" name="field_profile_problem_interest[und][63]" <?php if(isset($_POST['field_profile_problem_interest']['und']['63'])) echo "checked" ?>  value="63" class="form-checkbox">คอร์รัปชั่น
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-64 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-64">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-64" name="field_profile_problem_interest[und][64]" <?php if(isset($_POST['field_profile_problem_interest']['und']['64'])) echo "checked" ?> value="64" class="form-checkbox">บรรเทาภัยพิบัติ
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <?php /*
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-65 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-65">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-65" name="field_profile_problem_interest[und][65]" <?php if(isset($_POST['field_profile_problem_interest']['und']['65'])) echo "checked" ?> value="65" class="form-checkbox">ศีลธรรม
-                                            </label>
-                                          </div>
-                                        </div>
-                                        */ ?>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-66 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-66">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-66" name="field_profile_problem_interest[und][66]" <?php if(isset($_POST['field_profile_problem_interest']['und']['66'])) echo "checked" ?> value="66" class="form-checkbox">สื่อมวลชน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-150 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-150">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-150" name="field_profile_problem_interest[und][150]" <?php if(isset($_POST['field_profile_problem_interest']['und']['150'])) echo "checked" ?>  value="150" class="form-checkbox">กฎหมายและนโยบาย
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-62 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-62">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-62" name="field_profile_problem_interest[und][62]" <?php if(isset($_POST['field_profile_problem_interest']['und']['62'])) echo "checked" ?> value="62" class="form-checkbox">เสรีภาพในการแสดงความคิดเห็น
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Participation problem -->
-
-                                  <!-- Start : Peace problem -->
-                                  <div class="col-xs-12 margin__top20" id="peace">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-10 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-10">
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-10" name="field_profile_problem_interest[und][10]" <?php if(isset($_POST['field_profile_problem_interest']['und']['10'])) echo "checked" ?> value="10" class="form-checkbox ">สันติภาพ/ความสงบสุข
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-67 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-67">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-67" name="field_profile_problem_interest[und][67]" <?php if(isset($_POST['field_profile_problem_interest']['und']['67'])) echo "checked" ?> value="67" class="form-checkbox ">การใช้ความรุนแรงทารุณกรรม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-68 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-68">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-68" name="field_profile_problem_interest[und][68]" <?php if(isset($_POST['field_profile_problem_interest']['und']['68'])) echo "checked" ?> value="68" class="form-checkbox ">การขัดแย้งแบ่งแยก
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-69 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-69">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-69" name="field_profile_problem_interest[und][69]" <?php if(isset($_POST['field_profile_problem_interest']['und']['69'])) echo "checked" ?>  value="69" class="form-checkbox">อาชญากรรม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Peace problem -->
-
-                                  <!-- Start : Business problem -->
-                                  <div class="col-xs-12 margin__top20" id="business">
-
-                                    <div class="form-item form-item-field-profile-join-und form-type-checkboxes form-group">
-
-                                      <div class="form-item form-item-field-profile-problem-interest-und-13 form-type-checkbox checkbox">
-                                        <label class="control-label font__bold" for="edit-field-profile-problem-interest-und-13">
-                                          <br/>
-                                          <input type="checkbox" id="edit-field-profile-problem-interest-und-13" name="field_profile_problem_interest[und][13]" <?php if(isset($_POST['field_profile_problem_interest']['und']['13'])) echo "checked" ?> value="13" class="form-checkbox">ธุรกิจและกิจการเพื่อสังคม
-                                        </label>
-                                      </div>
-
-                                      <div class="col-xs-12">
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-93 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-93">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-93" name="field_profile_problem_interest[und][93]" <?php if(isset($_POST['field_profile_problem_interest']['und']['93'])) echo "checked" ?> value="93" class="form-checkbox">การลงทุนทางสังคม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-94 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-94">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-94" name="field_profile_problem_interest[und][94]" <?php if(isset($_POST['field_profile_problem_interest']['und']['94'])) echo "checked" ?> value="94" class="form-checkbox">การคุ้มครองผู้บริโภค
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-95 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-95">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-95" name="field_profile_problem_interest[und][95]" <?php if(isset($_POST['field_profile_problem_interest']['und']['95'])) echo "checked" ?> value="95" class="form-checkbox">ความรับผิดชอบต่อสังคม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-96 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-96">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-96" name="field_profile_problem_interest[und][96]" <?php if(isset($_POST['field_profile_problem_interest']['und']['96'])) echo "checked" ?> value="96" class="form-checkbox">การจ้างงาน
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-97 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-97">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-97" name="field_profile_problem_interest[und][97]" <?php if(isset($_POST['field_profile_problem_interest']['und']['97'])) echo "checked" ?> value="97" class="form-checkbox">การค้าที่เป็นธรรม
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                          <div class="form-item form-item-field-profile-problem-interest-und-98 form-type-checkbox checkbox">
-                                            <label class="control-label" for="edit-field-profile-problem-interest-und-98">
-                                              <input type="checkbox" id="edit-field-profile-problem-interest-und-98" name="field_profile_problem_interest[und][98]" <?php if(isset($_POST['field_profile_problem_interest']['und']['98'])) echo "checked" ?> value="98" class="form-checkbox">การท่องเที่ยว
-                                            </label>
-                                          </div>
-                                        </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-                                  <!-- End : Business problem -->
-
-                                </div>
-
-                              </div>
-
+                            ?>
+                            </div>
+                            </div>
+                            </div>
                             </div>
 
-                          </div>
-                          <!-- End : Problem interest -->
-
+                        </div>
                         </div>
 
+ <!---  //  Start Target -->                       
+<?php
+$term3 = taxonomy_get_tree(5);
+?>
                         <div class="row"></div>
 
                         <div class="col-xs-12 margin__top20" id="all-target">
@@ -2506,6 +1567,40 @@ $term1 = taxonomy_get_tree(3);
 
                                     <div class="col-xs-12">
 
+                                        <?php 
+                                            foreach($term3 as $key=>$value){
+                                                // Todo remove hardcode
+                                                if ($value->name != "All" && $value->tid != 109) {
+                                                ?>
+
+                                              <div class="col-xs-4">
+                                                <div class="form-item form-item-field-profile-target-group-und-<?php print $value->tid;?> form-type-checkbox checkbox">
+                                                  <label class="control-label" for="edit-field-profile-target-group-und-<?php print $value->tid;?>">
+                                                    <input type="checkbox" id="edit-field-profile-target-group-und-<?php print $value->tid;?>"  name="field_profile_target_group[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_target_group']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                    <?php print $value->name; ?>
+                                                  </label>
+                                                </div>
+                                              </div>
+                                                <?php
+                                                }
+                                            }
+                                        ?>
+                                        <div class="col-xs-6">
+                                            <div class="form-item form-item-field-profile-target-group-und-109 form-type-checkbox checkbox">
+                                              <label class="control-label" for="edit-field-profile-target-group-und-109--2">
+                                                <input id="edit-field-profile-target-group-und-109--2" name="field_profile_target_group[und][109]" <?php if(isset($_POST['field_profile_target_group']['und']['16'])) echo "checked" ?> value="109" class="form-checkbox check-target" type="checkbox">อื่นๆ (ระบุ)
+                                              </label>
+                                              <div id="target-select" style="display:none;">
+                                                <input class="text-full form-control form-text margin__top5" id="edit-field-profile-target-group-other-und-0-value--2 " name="field_profile_target_group_other[und][0][value]" value="<?php if(isset($_POST['field_profile_target_group_other'])) echo $_POST['field_profile_target_group_other']['und'][0]['value']; ?>" size="60" maxlength="255" type="text"  placeholder="">
+                                              </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                  </div>
+                                </div>  
+
+                                        <!--
                                       <div class="col-xs-4">
                                         <div class="form-item form-item-field-profile-target-group-und-16 form-type-checkbox checkbox">
                                           <label class="control-label" for="edit-field-profile-target-group-und-16">
@@ -2596,6 +1691,7 @@ $term1 = taxonomy_get_tree(3);
                                           </div>
                                         </div>
                                       </div>
+                                      -->
 
                                     </div>
 

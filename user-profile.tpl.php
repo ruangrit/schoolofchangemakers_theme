@@ -1824,6 +1824,7 @@ $term2 = taxonomy_get_tree(5);
 			            		}
 			            	}
 			            ?>
+			            	<!-- Todo remove hardcode -->
                             <div class="col-xs-4 margin__top5">
                                 <div class="form-item form-item-field-profile-target-group-und-109 form-type-checkbox checkbox"> 
                                     <label class="control-label" for="profile_target_group_und_109">
@@ -1909,12 +1910,36 @@ $term3 = taxonomy_get_tree(3);
 
 								 	?>
 	                                <div class="col-xs-4">
+	                                <?php // Todo remove hardcode
+	                                	if ($value->tid == 39) {
+	                                		?>
+	         							<div class="form-item form-item-field-profile-skill-interest-und-39 form-type-checkbox checkbox col-xs-12 "> 
+	                                        <label class="control-label" for="profile_skill_interest_und_39">
+	                                            <input type="checkbox" id="profile_skill_interest_und_39" name="field_profile_skill_interest[und][39]" <?php if(in_array(39,$data_skill)) echo "checked"; ?> value="39" class="form-checkbox check-commu">ภาษาต่างประเทศ (ระบุภาษา) 
+	                                        </label>
+	                                            <div id="commu-opt" style="<?php echo empty(in_array(39,$data_skill))?"display: none;":""; ?>" >
+	                                            <div class="field-type-text field-name-field-proflie-language field-widget-text-textfield form-wrapper margin__top5" id="edit-field-proflie-language--2">
+	                                                <div id="field-proflie-language-add-more-wrapper--2 ">
+	                                                    <div class="form-item form-type-textfield form-item-field-proflie-language-und-0-value">
+	                                                     <input class="text-full form-text" type="text" placeholder="ระบุภาษา" id="proflie_language" name="field_proflie_language[und][0][value]" value="<?php print $data_user->field_proflie_language['und'][0]['value']; ?>" size="60" maxlength="255">
+	                                                    </div>
+	                                                </div>
+	                                                </div>
+	                                                
+	                                            </div>
+	                                        
+	                                    </div>
+	                                		<?php
+	                                	}
+	                                	else {
+	                                ?>
 	                                    <div class="form-item form-item-field-profile-skill-interest-und-<?php print $value->tid;?> form-type-checkbox checkbox "> 
 	                                        <label class="control-label" for="profile_skill_interest_und_<?php print $value->tid;?>">
 	                                            <input type="checkbox" id="profile_skill_interest_und_<?php print $value->tid;?>" name="field_profile_skill_interest[und][<?php print $value->tid;?>]" value="<?php print $value->tid;?>" <?php if(in_array($value->tid,$data_skill)) echo "checked"; ?> class="form-checkbox">
 	                                            <?php print $value->name;?>
 	                                        </label>
 	                                    </div>
+	                                    <?php } ?>
 	                                </div>
                                 <?php
 								}
