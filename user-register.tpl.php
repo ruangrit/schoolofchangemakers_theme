@@ -1284,7 +1284,7 @@ drupal_set_title('REGISTER');
 
 
 
-                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:" > <!--style="display: none;" -->
+                    <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:none" > <!--style="display: none;" -->
                       <div class="fieldset-wrapper multipage-pane-wrapper">
 
                         <div class="col-xs-12">
