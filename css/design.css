@@ -177,7 +177,7 @@ label[for="edit_field_profile_problem_interest_und_8"], label[for="profile_probl
     margin-top: 10px;
     
 }
-.checkbox-height{ height: 260px!important;}
+.checkbox-height{ height: 500px!important;}
 .modal-body-problem, .modal-body-target{ height:inherit!important; }
 
 @media (min-width: 992px){
