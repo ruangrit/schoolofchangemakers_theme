@@ -1609,7 +1609,7 @@ $term3 = taxonomy_get_tree(5);
                                   </div>
                                 </div>  
 
-                                    </div>
+                                    
 
                                   </div>
 
