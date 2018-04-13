@@ -1585,7 +1585,7 @@ $term3 = taxonomy_get_tree(5);
                                               <div class="col-xs-4">
                                                 <div class="form-item form-item-field-profile-target-group-und-<?php print $value->tid;?> form-type-checkbox checkbox">
                                                   <label class="control-label" for="edit-field-profile-target-group-und-<?php print $value->tid;?>">
-                                                    <input type="checkbox" id="edit-field-profile-target-group-und-<?php print $value->tid;?>"  name="field_profile_target_group[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_target_group']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox">
+                                                    <input type="checkbox" id="edit-field-profile-target-group-und-<?php print $value->tid;?>"  name="field_profile_target_group[und][<?php print $value->tid;?>]" <?php if(isset($_POST['field_profile_target_group']['und']['<?php print $value->tid;?>'])) echo "checked" ?> value="<?php print $value->tid;?>" class="form-checkbox target_child_checkbox">
                                                     <?php print $value->name; ?>
                                                   </label>
                                                 </div>
@@ -3338,7 +3338,7 @@ $term3 = taxonomy_get_tree(5);
 
              $("input[name*='field_profile_target_group[und][21]']").not(this).prop('checked', this.checked);
 
-
+             $(".target_child_checkbox").not(this).prop('checked', this.checked);
 
 
 
@@ -3780,8 +3780,10 @@ $term3 = taxonomy_get_tree(5);
                 var check_value= $('#edit-field-profile-target-group-und-all')[0].checked;
                 if(check_value == true){
                     $('#edit-field-profile-target-group-und-all').prop("checked", false );
+                    $('target_child_checkbox').prop("checked", false );
                 }else{
                     $('#edit-field-profile-target-group-und-all').prop("checked", true );
+                    $('target_child_checkbox').prop("checked", true);
                 }
 
             }else if(checkedValue == 11){
