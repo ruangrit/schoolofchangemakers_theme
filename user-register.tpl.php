@@ -39,8 +39,6 @@ drupal_set_title('REGISTER');
 
     $form = drupal_get_form('user_register_form');
 
-
-
     //print drupal_render_children($form);
 
 
@@ -1283,7 +1281,6 @@ drupal_set_title('REGISTER');
 
 
 
-
                     <div id="page_two" class="field-group-multipage required-fields group-register-group2 multipage-closed form-wrapper multipage-pane" style="display:none" > <!--style="display: none;" -->
                       <div class="fieldset-wrapper multipage-pane-wrapper">
 
@@ -1634,9 +1631,16 @@ $term3 = taxonomy_get_tree(5);
 
                       <div class="multipage-controls-list clearfix" >
 
+
+
+
                         <div class="form-actions form-wrapper form-group" id="edit-actions">
                           <input type="hidden" name="form_id" value="user_register_form">
                           <center><br>
+                            <?php
+                            print render($form['captcha']);
+                            ?>
+                            <br />
                             <button type="submit" id="edit-submit" name="op" value="Confirm Registration"   class="btn btn--submit" > Confirm Registration </button>
                           </center>
                         </div>
