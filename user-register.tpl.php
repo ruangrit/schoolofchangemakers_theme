@@ -1637,9 +1637,12 @@ $term3 = taxonomy_get_tree(5);
                         <div class="form-actions form-wrapper form-group" id="edit-actions">
                           <input type="hidden" name="form_id" value="user_register_form">
                           <center><br>
+                          <div style="width:30%">
+                            ยืนยันตัวตนว่าคุณไม่ใช่สแปม
                             <?php
                             print render($form['captcha']);
                             ?>
+                          </div>
                             <br />
                             <button type="submit" id="edit-submit" name="op" value="Confirm Registration"   class="btn btn--submit" > Confirm Registration </button>
                           </center>
